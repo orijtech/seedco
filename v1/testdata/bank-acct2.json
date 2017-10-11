@@ -1,0 +1,23 @@
+{
+   "results" : [
+      {
+         "pending_debits" : 1123,
+         "accessible" : 45617,
+         "lockbox" : 98,
+         "scheduled_debits" : 0,
+         "pending_credits" : 0,
+         "settled" : 220,
+         "checking_account_id" : "96dca11d-00df-486c-aa49-150d1e0119a1"
+      },
+      {
+         "pending_debits" : 6477,
+         "accessible" : 1348,
+         "lockbox" : 923,
+         "scheduled_debits" : 321,
+         "pending_credits" : 910,
+         "total_available" : 63899,
+         "settled" : 5996,
+         "checking_account_id" : "e7b8d853-d96e-413e-b210-369b1c270625"
+      }
+   ]
+}

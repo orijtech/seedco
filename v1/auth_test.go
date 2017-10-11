@@ -109,6 +109,8 @@ const (
 
 	listTransactionsRoute = "list-transactions"
 
+	listBalancesRoute = "list-balances"
+
 	refreshTokenRoute = "refresh-token"
 )
 
@@ -126,6 +128,8 @@ func (b *backend) RoundTrip(req *http.Request) (*http.Response, error) {
 		return apiVersionRoundTrip(req)
 	case listTransactionsRoute:
 		return listTransactionsRoundTrip(req)
+	case listBalancesRoute:
+		return listBalancesRoundTrip(req)
 	default:
 		return makeResp("unimplemented", http.StatusBadRequest, nil)
 	}

@@ -90,3 +90,17 @@ func Example_client_SearchTransactions() {
 		}
 	}
 }
+
+func Example_client_ListBalances() {
+	client, err := seedco.NewClientFromEnv()
+	if err != nil {
+		log.Fatal(err)
+	}
+	balances, err := client.ListBalances()
+	if err != nil {
+		log.Fatal(err)
+	}
+	for i, balance := range balances {
+		log.Printf("#%d: %#v\n", i, balance)
+	}
+}
