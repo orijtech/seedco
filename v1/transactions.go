@@ -19,6 +19,7 @@ const (
 )
 
 type SearchParams struct {
+	Query     string    `json:"query,omitempty"`
 	Status    Status    `json:"status,omitempty"`
 	StartDate time.Time `json:"start_date,omitempty"`
 	EndDate   time.Time `json:"end_date,omitempty"`
@@ -60,6 +61,10 @@ type recvTransactions struct {
 }
 
 const defaultLimit = int(1000)
+
+func (c *Client) SearchTransactions(sp *SearchParams) (*SearchResults, error) {
+	return c.ListTransactions(sp)
+}
 
 func (c *Client) ListTransactions(sp *SearchParams) (*SearchResults, error) {
 	if sp == nil {

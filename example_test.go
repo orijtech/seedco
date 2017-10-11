@@ -65,3 +65,28 @@ func Example_client_ListTransactions() {
 		}
 	}
 }
+
+func Example_client_SearchTransactions() {
+	client, err := seedco.NewClientFromEnv()
+	if err != nil {
+		log.Fatal(err)
+	}
+	resp, err := client.ListTransactions(&seedco.SearchParams{
+		Query:         "Chipotle",
+		Limit:         100,
+		MaxPageNumber: 10,
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Printf("Transactions with a Chipotle match")
+	for page := range resp.PagesChan {
+		if err := page.Err; err != nil {
+			log.Printf("pageNumber: %d err: %v", page.PageNumber, err)
+			continue
+		}
+		for i, transaction := range page.Transactions {
+			log.Printf("PageNumber: %d Transaction #%d\n", page.PageNumber, i, transaction)
+		}
+	}
+}
