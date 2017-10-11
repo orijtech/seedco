@@ -1,0 +1,26 @@
+{
+  "results":
+    [
+      {
+        "id" : "df882c13-77f8-42e7-8a31-8a5d962d5878",
+        "checking_account_id" : "8410a863-2f9d-4bc3-9526-b98d49db7f16",
+        "amount" : 8098,
+        "status": "settled",
+        "attachments" : [],
+        "date" : "2017-10-11T12:00:00Z",
+        "category" : "Electric bill",
+        "description" : "P&G E",
+        "memo" : ""
+      },  {
+        "id" : "9ce583c7-2a98-4ab4-9405-5a9fc977cef1",
+        "checking_account_id" : "8410a863-2f9d-4bc3-9526-b98d49db7f16",
+        "amount" : 12281,
+        "status": "pending",
+        "attachments" : [],
+        "date" : "2017-10-11T12:17:00Z",
+        "category" : "Duvet",
+        "description" : "Belongings",
+        "memo" : "Moving"
+      }
+    ]
+}

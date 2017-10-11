@@ -3,7 +3,7 @@ package seedco_test
 import (
 	"log"
 
-	"github.com/orijtech/seedco"
+	"github.com/orijtech/seedco/v1"
 )
 
 func Example_client_AuthToken() {
@@ -40,4 +40,28 @@ func Example_client_APIVersion() {
 		log.Fatal(err)
 	}
 	log.Printf("Latest APIVersion: %+v\n", apiVersion)
+}
+
+func Example_client_ListTransactions() {
+	client, err := seedco.NewClientFromEnv()
+	if err != nil {
+		log.Fatal(err)
+	}
+	resp, err := client.ListTransactions(&seedco.SearchParams{
+		Limit:         100,
+		Offset:        10,
+		MaxPageNumber: 10,
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+	for page := range resp.PagesChan {
+		if err := page.Err; err != nil {
+			log.Printf("pageNumber: %d err: %v", page.PageNumber, err)
+			continue
+		}
+		for i, transaction := range page.Transactions {
+			log.Printf("PageNumber: %d Transaction #%d\n", page.PageNumber, i, transaction)
+		}
+	}
 }

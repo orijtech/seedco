@@ -9,7 +9,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/orijtech/seedco"
+	"github.com/orijtech/seedco/v1"
 )
 
 func TestAPIVersion(t *testing.T) {
@@ -56,14 +56,23 @@ var tokenToVersionMap = map[string]string{
 	"token3": "api-version-with-errs",
 }
 
-func apiVersionRoundTrip(req *http.Request) (*http.Response, error) {
+func ensureBearerTokenAuthd(req *http.Request) (string, *http.Response, error) {
 	bearerToken := req.Header.Get("Authorization")
 	bearerStr := "Bearer "
 	idx := strings.Index(bearerToken, bearerStr)
 	if idx < 0 {
-		return makeResp(`expecting Bearer token to have been set`, http.StatusUnauthorized, nil)
+		res, err := makeResp(`expecting Bearer token to have been set`, http.StatusUnauthorized, nil)
+		return "", res, err
 	}
 	bearerToken = bearerToken[idx+len(bearerStr):]
+	return bearerToken, nil, nil
+}
+
+func apiVersionRoundTrip(req *http.Request) (*http.Response, error) {
+	bearerToken, badRes, err := ensureBearerTokenAuthd(req)
+	if badRes != nil || err != nil {
+		return badRes, err
+	}
 	basename := tokenToVersionMap[bearerToken]
 	if basename == "" {
 		return makeResp(`invalid credentials`, http.StatusUnauthorized, nil)

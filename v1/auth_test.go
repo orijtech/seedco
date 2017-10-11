@@ -11,7 +11,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/orijtech/seedco"
+	"github.com/orijtech/seedco/v1"
 )
 
 type backend struct {
@@ -107,6 +107,8 @@ const (
 
 	apiVersionRoute = "api-version"
 
+	listTransactionsRoute = "list-transactions"
+
 	refreshTokenRoute = "refresh-token"
 )
 
@@ -122,6 +124,8 @@ func (b *backend) RoundTrip(req *http.Request) (*http.Response, error) {
 		return refreshTokenRoundTrip(req)
 	case apiVersionRoute:
 		return apiVersionRoundTrip(req)
+	case listTransactionsRoute:
+		return listTransactionsRoundTrip(req)
 	default:
 		return makeResp("unimplemented", http.StatusBadRequest, nil)
 	}

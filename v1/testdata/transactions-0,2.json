@@ -1,0 +1,26 @@
+{
+  "results":
+    [
+      {
+        "id" : "472901ae-5473-4089-9dbe-afa71a46e585",
+        "checking_account_id" : "9d9d21c7-2926-498e-b087-128f8b0e8b42",
+        "amount" : 736,
+        "status": "settled",
+        "attachments" : [],
+        "date" : "2016-12-27T12:00:00Z",
+        "category" : "Meals & Entertainment",
+        "description" : "Mcdonalds",
+        "memo" : ""
+      },  {
+        "id" : "220fd4b7-a157-4c3c-a8eb-129261d2fd88",
+        "checking_account_id" : "365d50cd-a2d8-44a3-a416-0f57cb3f0ee9",
+        "amount" : 899,
+        "status": "pending",
+        "attachments" : [],
+        "date" : "2017-10-10T13:17:00Z",
+        "category" : "Uber",
+        "description" : "Uber to the cinema",
+        "memo" : "Metreon sites"
+      }
+    ]
+}
