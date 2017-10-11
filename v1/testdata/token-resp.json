@@ -1,0 +1,12 @@
+{
+    "errors": [],
+    "results": [
+        {
+            "access_token": "2.a.877CmIRBQeaoCl8iJxKdpA.QWIl7XiTqoFaUGWoBsfd1L9i_O2lQi3Ot49zHl1xf0c.OrUjBlPTVS1-OuenqOV1mqIXRt6MaJZm5WTm6T5u4m8",
+            "expires_in": 86400,
+            "permissions": "public-api",
+            "refresh_token": "2.r.877CmIRBQeaoCl8iJxKdpA.x5uHcagI8tV1WAAJMSewuLklnLJ_x9jsgG4hHQNJraU.BtmS_OIYm2pLOZ-geZrNlsupQkakcHo1tgIPFvuNOCk",
+            "token_type": "Bearer"
+        }
+    ]
+}
